@@ -201,3 +201,42 @@ userName = userInput; //컴파일 에러
 ```
 
 `userInput`의 타입을 `any`로 바꾸면 컴파일 에러는 사라지게 된다.
+
+---
+
+### watch 모드
+
+변경사항이 있을때 마다 자동으로 컴파일해주는 모드 단점은 작업하는 파일 한 개만 가능하다.
+
+```ts
+tsc {파일명} -W
+tsc {파일명} --watch
+```
+
+### 전체 프로젝트 컴파일
+
+해당 프로젝트 폴더에서 `tsc --init` 명령어를 사용하면 `tsconfig.json` 파일이 생기면서 해당 폴더의 모든 파일들을 타입스크립트로 관리할 수 있다.
+
+```ts
+tsc --init
+tsc //모든 파일 컴파일
+tsc -W //모든 파일 watch모드
+```
+
+### tsconfig.json 설정
+
+- #### exclude
+  `exclude` 설정은 타입스크립트 관리에서 배제할 파일을 설정하는 옵션이다. `exclude` 설정을 추가 하지 않으면 기본적으로 `node_modules`이 제외된다. 추가로 다른 파일을 제외하고 싶다면 `node_modules`를 설정해야 한다. 설정하지 않으면 제외되지 않기 때문이다.
+
+```ts
+"exclude": ["node_modules"]
+```
+
+<br>
+
+- #### include
+  `include` 설정은 컴파일 과정에 포함시킬 파일을 타입스크립트에 알려서 여기에 포함되지 않은 어떤 것도 컴파일 되지 않도록 한다.
+
+```ts
+"include": ["app.ts", "basic.ts"]
+```
