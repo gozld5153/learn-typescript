@@ -240,3 +240,5 @@ tsc -W //모든 파일 watch모드
 ```ts
 "include": ["app.ts", "basic.ts"]
 ```
+
+## [컴파일러 옵션](https://www.typescriptlang.org/ko/docs/handbook/compiler-options.html)
